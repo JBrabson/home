@@ -2,7 +2,8 @@ class Apartment
   attr_reader :number,
               :monthly_rent,
               :bathrooms,
-              :bedrooms
+              :bedrooms,
+              :renter
 
   def initialize(specs)
     @number = specs[:number]
