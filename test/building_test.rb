@@ -41,4 +41,16 @@ class BuildingTest < Minitest::Test
     @building.add_unit(@unit2)
     assert_equal 1099.5, @building.average_rent
   end
+
+  def test_it_knows_renter_with_highest_rent
+    unit3 = Apartment.new({number: "C3", monthly_rent: 1150, bathrooms: 2, bedrooms: 2})
+    unit4 = Apartment.new({number: "D4", monthly_rent: 1500, bathrooms: 2, bedrooms: 3})
+    renter1 = Renter.new("Spencer")
+    @building.add_unit(@unit1)
+    @building.add_unit(@unit2)
+    @building.add_unit(unit3)
+    assert_equal [], @building.rented_units
+    @unit2.add_renter(renter1)
+    assert_equal [@unit2], @building.rented_units
+  end
 end

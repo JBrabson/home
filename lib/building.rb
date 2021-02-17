@@ -28,4 +28,10 @@ class Building
     end
   end
 
+  def rented_units
+  @units.find_all do |unit|
+    unit.renter
+    end
+  end
+
 end
