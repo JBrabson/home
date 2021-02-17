@@ -21,4 +21,11 @@ class Building
     end
     list
   end
+
+  def average_rent
+    @units.sum do |unit|
+      unit.monthly_rent.to_f/2
+    end
+  end
+
 end
